@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayoutTravel">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/headerLayoutAccessElements"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:elevation="7dp"
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/headerElements"
+                layout="@layout/header_triplan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/footerLayoutAccessElements"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorWhite"
+            android:elevation="12dp"
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/footerElements"
+                layout="@layout/footer_triplan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/innerRelativeLayoutBill"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/footerLayoutAccessElements"
+        android:layout_below="@id/headerLayoutAccessElements"
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:id="@+id/textTitleBill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/omnes_bold"
+            android:singleLine="true"
+            android:textColor="@color/colorDarkGrey"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textBillMembers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textTitleBill"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/omnes_regular"
+            android:singleLine="true"
+            android:textColor="@color/colorDarkGrey"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnAddExpense"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:layout_above="@+id/relativeLayoutFooterExp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-34dp"
+            android:background="@drawable/btn_add_item" />
+
+        <View
+            android:id="@+id/dividerAccessBill"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignTop="@+id/linearLayoutDividers"
+            android:layout_gravity="start"
+            android:layout_marginTop="1dp"
+            android:background="@color/colorExtraDarkGrey" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutTabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textBillMembers"
+            android:layout_marginTop="0dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnExpensesList"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:background="@color/colorWhite"
+                android:contentDescription="@string/expenses_button"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:src="@drawable/btn_expenses" />
+
+            <ImageButton
+                android:id="@+id/btnBalancesList"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:background="@color/colorWhite"
+                android:contentDescription="@string/balances_button"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:src="@drawable/btn_balances" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDividers"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@id/linearLayoutTabs"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
+            <RelativeLayout
+                android:id="@+id/layoutDividerExpensesList"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:layout_weight="0.5">
+
+                <View
+                    android:id="@+id/dividerExpensesList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:background="@color/colorYellow"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutDividerBalancesList"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_weight="0.5">
+
+                <View
+                    android:id="@+id/dividerBalancesList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:background="@color/colorYellow" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutFooterExp"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorDarkGrey">
+
+            <TextView
+                android:id="@+id/textMyTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textMyTotalAmount"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="4dp"
+                android:ems="7"
+                android:fontFamily="@font/omnes_regular"
+                android:singleLine="true"
+                android:text="@string/my_total"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textMyTotalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="7dp"
+                android:ems="8"
+                android:fontFamily="@font/omnes_medium"
+                android:singleLine="true"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textTripTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textTripTotalAmount"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="4dp"
+                android:ems="7"
+                android:fontFamily="@font/omnes_regular"
+                android:singleLine="true"
+                android:text="@string/trip_total"
+                android:textAlignment="textEnd"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textTripTotalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="58dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="7dp"
+                android:layout_toEndOf="@+id/textMyTotalAmount"
+                android:ems="8"
+                android:fontFamily="@font/omnes_medium"
+                android:singleLine="true"
+                android:textAlignment="textEnd"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeAccessBill"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/relativeLayoutFooterExp"
+            android:layout_below="@id/linearLayoutDividers">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/layoutAddFirstExpense"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginEnd="60dp"
+                    android:elevation="7dp"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/textAddFirstExpense"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/omnes_regular"
+                        android:letterSpacing="0.02"
+                        android:text="@string/bill_empty"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/colorDarkGrey"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/scrollViewExpenses"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewExpenses"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </androidx.core.widget.NestedScrollView>
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/scrollViewBalances"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewBalances"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </androidx.core.widget.NestedScrollView>
+
+            </RelativeLayout>
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </RelativeLayout>
+    </RelativeLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/navViewTravel"
+        app:headerLayout="@layout/header_menu"
+        app:menu="@menu/travel_menu"
+        android:layout_gravity="start"
+        android:theme="@style/DrawerStyle"/>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
